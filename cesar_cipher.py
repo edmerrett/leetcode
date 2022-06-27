@@ -1,3 +1,6 @@
+import string
+
+
 def encode(input_string: str, shift: int) -> str:
     '''
     Takes a string inpuit and outputs an encoded string per the shift
@@ -14,6 +17,7 @@ def encode(input_string: str, shift: int) -> str:
         
     lower_alphabet = string.ascii_lowercase
     upper_alphabet = string.ascii_uppercase
+    punct_alphabet = string.punctuation
 
     encoded = ''
     for char in input_string:
@@ -25,7 +29,14 @@ def encode(input_string: str, shift: int) -> str:
             current = upper_alphabet.index(char)
             new = current + shift
             encoded += upper_alphabet[new%26]
+        elif char in punct_alphabet:
+            current = punct_alphabet.index(char)
+            new = current + shift
+            encoded += punct_alphabet[new%32]
         else:
             encoded += char
 
     return encoded
+
+
+print(encode("Hello!", 7))

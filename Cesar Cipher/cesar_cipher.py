@@ -1,6 +1,7 @@
 import string
 
 class cesarCipher():
+    
     def encodeCesar(self, input_string: str, shift: int) -> str:
         '''
         Takes a string inpuit and outputs an encoded string per the shift
@@ -10,11 +11,9 @@ class cesarCipher():
             shift: int -> Number of shifts to do
         '''
 
-        if not isinstance(input_string, str):
-            return 'invalid input'
-        elif not isinstance(shift, int):
-            return 'invalid input'
-            
+        if not isinstance(input_string, str) or isinstance(shift, int):
+            return 'invalid input' 
+        
         lower_alphabet = string.ascii_lowercase
         upper_alphabet = string.ascii_uppercase
         punct_alphabet = string.punctuation

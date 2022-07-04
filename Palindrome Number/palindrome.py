@@ -13,8 +13,7 @@ class PalindromeNumber:
         num = str(num)
         if num == num[::-1]:
             return True
-        else:
-            return False
+        return False
 
 palindrome = PalindromeNumber()
-print(palindrome.SimplePalidrome(1212))
+print(palindrome.SimplePalidrome(1001))

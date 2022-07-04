@@ -23,7 +23,31 @@ from typing import  List
 
 class Solution:
     def validMountainArray(self, arr: List[int]) -> bool:
-        pass
+
+        # Check if len of arr is less than 3 - not valid mountain array
+        if len(arr) < 3:
+            return False
+
+        # set starting point as 2 element in the array
+        i = 1
+
+        # loop: if the element is smaller than the len of the array and 
+        # the element is greater than the previous number -> upward slope
+        while i < len(arr) and arr[i] > arr[i - 1]:
+            i += 1
+
+        # if i is 1 you have not moved or if i is the len of array you have moved too far
+        if i == 1 or i == len(arr):
+            return False
+
+        # loop: if the element is smaller than the len of the array and
+        # the element is smaller than the previous number -> downward slope
+        while i < len(arr) and arr[i] < arr[i - 1]:
+            i += 1
+
+        # if you hve reached the end of the array successfully return True
+        return i == len(arr)
+
 
 s = Solution()
-print(s.validMountainArray([2, 1]))
+print(s.validMountainArray([0,3,4,5,3,2,1]))
